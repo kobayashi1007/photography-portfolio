@@ -50,8 +50,15 @@
 }
 
 .navbar a:hover,
-.navbar button:hover {
-  background: #333; /* hover 時整格變色 */
+.navbar button:hover,
+.navbar a.active {
+  background: rgba(255, 255, 255, 0.15); /* 使用更柔和的背景色 */
+  color: #fff;
+}
+
+/* 如果在下拉選單內也有 active 狀態 */
+.dropdown-menu li a.active {
+  background: #333;
 }
 
 .navbar li.dropdown {
@@ -105,9 +112,43 @@
   background: #333;
 }
 
-.dropdown-menu.show {
-  opacity: 1;
-  visibility: visible;
+/* 響應式調整：小螢幕時縮小導覽列項目 */
+@media (max-width: 768px) {
+  .navbar li {
+    flex: 0 0 100px; /* 縮小寬度 */
+  }
+  .navbar a, .navbar button {
+    font-size: 14px;
+  }
+  .dropdown-menu {
+    width: 100px;
+  }
+  .dropdown-menu li, .dropdown-menu li a {
+    width: 100px;
+  }
+  .mute-btn {
+    padding-right: 10px;
+    gap: 8px;
+  }
+  #mute-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+  #volume-control {
+    width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar ul {
+    gap: 5px;
+  }
+  .navbar li {
+    flex: 1; /* 均分空間 */
+  }
+  #volume-control, #volume-pct {
+    display: none; /* 極小螢幕隱藏音量條 */
+  }
 }
 
 /* --- 靜音按鈕與音量控制項美化 --- */
@@ -158,6 +199,7 @@
 /* 音量拉桿自定義樣式 */
 #volume-control {
   -webkit-appearance: none;
+  appearance: none;
   width: 100px; /* 稍微加長 */
   height: 4px;
   background: rgba(255, 255, 255, 0.2);

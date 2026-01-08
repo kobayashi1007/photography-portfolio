@@ -2,6 +2,8 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="關於攝影師 - 了解我的攝影理念與創作故事。">
   <title>自我介紹 | 攝影作品集</title>
   <link rel="stylesheet" href="layout.css">
   <link rel="stylesheet" href="navbar.css">
@@ -14,11 +16,11 @@
       <li><a href="home.html">首頁</a></li>
       <li class="dropdown">
         <a href="#" id="dropdown-toggle">關於我 ▼</a>
-        <ul class="dropdown-menu" id="dropdown-menu">
-          <li><a href="about.html">自我介紹</a></li>
-          <li><a href="portfolio.html">作品集</a></li>
-          <li><a href="contact.html">聯絡我</a></li>
-        </ul>
+    <ul class="dropdown-menu" id="dropdown-menu">
+      <li><a href="about.html" class="active">自我介紹</a></li>
+      <li><a href="portfolio.html">作品集</a></li>
+      <li><a href="contact.html">聯絡我</a></li>
+    </ul>
       </li>
       <li class="mute-btn"> 
         <button id="mute-btn">🔇 靜音</button> 
@@ -34,7 +36,7 @@
   <main class="about-content">
     <div class="about-image">
       <!-- 使用剛上傳的個人照 -->
-      <img src="image/about-me.png" alt="攝影師個人照">
+      <img src="image/about-me.png" alt="攝影師個人照" loading="lazy">
     </div>
     
     <div class="about-text">
