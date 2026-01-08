@@ -1,0 +1,201 @@
+  body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background: #fff;
+    color: #000;
+  }
+
+  .text {
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  /* 導覽列樣式 */
+  .navbar {
+    background: #111;
+    padding: 2px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
+  .navbar ul {
+    display: flex;
+    align-items: center,stretch; /* 垂直置中所有項目 */
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar ul li a {
+  display: block;
+  padding: 12px 20px;   /* ⭐ 記住這個數值 */
+  color: white;
+  text-decoration: none;
+}
+
+  .navbar li { 
+    flex: 0 0 160px; /* 固定寬度 */ 
+    height: 50px; /* 固定高度，依需求可調整 */ }
+
+  .navbar a, 
+  .navbar button { 
+    display: flex; 
+    justify-content: center; /* 水平置中 */ 
+    align-items: center; /* 垂直置中 */ 
+    width: 100%; 
+    height: 100%; /* 跟 li 一樣高 */ 
+    font-size: 16px; 
+    color: #fff; 
+    text-decoration: none; 
+    background: transparent; 
+    border: none; 
+    cursor: pointer; 
+    box-sizing: border-box; 
+  }
+  .navbar a:hover, 
+  .navbar button:hover { 
+    background: #333; /* hover 時整格變色 */ 
+  }
+  .navbar {
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+  }
+
+  .dropdown {
+  position: relative;
+  width: 160px;
+  }
+
+  .dropdown > a { 
+    display: block; 
+    width: 100%; 
+    padding: 12px 20px; 
+    box-sizing: border-box; 
+  }
+  
+  .dropdown-menu {
+  position: absolute;
+  top: 100%;       /* 緊貼在主選項下方 */
+  left: 0;
+  width: 160px;    /* 與導覽列項目寬度一致 */
+  height: auto;    /* 依內容自動高度，避免撐滿畫面 */
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid #444;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;            /* 預設隱藏 */
+  visibility: hidden;    /* 預設隱藏 */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999;
+  gap: 0;
+  }
+
+
+
+
+  .dropdown-menu li a:hover {
+  background: #333;
+  }
+  
+
+  .dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  }
+
+
+  .hero {
+    height: 100vh; /* 全螢幕高度 */
+    background-image: url("photo.jpg"); /* 換成你的照片檔名 */
+    background-size: cover;   /* 照片自動填滿 */
+    background-position: center; /* 照片置中 */
+    background-repeat: no-repeat; /* 不重複 */
+    color: rgb(241, 241, 241); /* 文字顏色 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+  }
+
+  .hero h1 {
+    font-size: 3.5em;
+    letter-spacing: 2px;  
+    margin: 0;
+    animation: fadeIn 2s ease-in-out;
+    background: rgba(0,0,0,0.4); /* 黑色透明遮罩 */
+  }
+
+
+  .hero p {
+    font-size: 1.5em;
+    letter-spacing: 2px;  
+    margin: 0;
+    animation: fadeIn 4s ease-in-out;
+    background: rgba(0,0,0,0.4); /* 黑色透明遮罩 */
+
+  }
+
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .photo {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    margin: 50px 0;
+    display: flex; /* 啟用 Flexbox */ 
+    align-items: center; /* 垂直置中 */ 
+    margin: 40px 0;
+  }
+
+  .photo img {
+    width: 500px;   /* 固定寬度，依需求調整 */
+    height: auto;   /* 高度自動等比例縮放 */
+    border-radius: 10px;
+    margin-right: 100px;
+  }
+
+
+  .photo img:hover {
+    opacity: 0.8;
+  }
+
+  .mute-btn button {
+  color: #fff;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  padding: 10px 15px;
+  cursor: pointer;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  }
+  
+  .mute-btn {
+  margin-left: auto;
+  }
+
+
+
+  #mute-btn:hover {
+    background: rgba(255,255,255,0.2);
+  }
+
+
+
+  /* 簡單淡入動畫 */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }

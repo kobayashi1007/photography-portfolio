@@ -1,0 +1,566 @@
+/* --- 基礎頁面設定 --- */
+body {
+  margin: 0;
+  font-family: 'PingFang TC', 'Microsoft JhengHei', Helvetica, Arial, sans-serif;
+  background: #fcfcfc;
+  color: #111;
+  overflow-x: hidden;
+}
+
+/* --- 首頁專用樣式 --- */
+.hero {
+  height: 100vh;
+  background-image: url("/image/photo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  z-index: 1;
+}
+
+.hero-content {
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 3.5em;
+  letter-spacing: 10px;
+  margin: 0;
+  animation: fadeIn 2s ease-in-out;
+  font-weight: 300;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.hero p {
+  font-size: 1.2em;
+  letter-spacing: 4px;
+  margin: 20px 0 0;
+  animation: fadeIn 3s ease-in-out;
+  opacity: 0.8;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  opacity: 0.6;
+}
+
+.mouse {
+  width: 20px;
+  height: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  margin: 0 auto 10px;
+  position: relative;
+}
+
+.mouse::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  animation: mouseWheel 2s infinite;
+}
+
+@keyframes mouseWheel {
+  0% { top: 8px; opacity: 1; }
+  100% { top: 20px; opacity: 0; }
+}
+
+.photo-text-section {
+  padding: 100px 20px;
+  background: #fff;
+}
+
+.main-gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.category-tag {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #aaa;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.text-line {
+  width: 30px;
+  height: 2px;
+  background: #111;
+  margin: 20px 0;
+}
+
+.text-area {
+  max-width: 500px;
+  color: #333;
+}
+
+.text-area h2 {
+  font-size: 28px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.text-area p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #666;
+  margin: 20px 0;
+}
+
+.gallery-controls {
+  display: flex;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.gallery-controls button {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 12px 25px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.gallery-controls button:hover {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+.photo-area img {
+  max-width: 450px;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+  transition: opacity 0.5s ease; /* 漸入漸出效果 */
+}
+
+.text-area h2, 
+.text-area p {
+  transition: opacity 0.5s ease; /* 文字也加入平滑過渡 */
+}
+
+/* --- 作品集 (Portfolio) 滿版頁面樣式 --- */
+.portfolio-page-body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; 
+  background: #fcfcfc;
+}
+
+.portfolio-header {
+  text-align: center;
+  padding: 80px 20px 20px;
+  flex: 0 0 auto;
+}
+
+.portfolio-header h1 {
+  font-size: 32px;
+  margin: 0;
+  letter-spacing: 8px;
+  font-weight: 300;
+}
+
+.portfolio-header p {
+  font-size: 13px;
+  color: #888;
+  margin-top: 10px;
+  letter-spacing: 2px;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 0 40px;
+  flex: 1; 
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.photo {
+  flex: 1;
+  text-align: center;
+  animation: entranceAnim 0.8s ease-out forwards;
+}
+
+.img-container {
+  position: relative;
+  width: 100%;
+  height: 30vh; /* 使用螢幕高度比例 */
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.08);
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s ease;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.overlay span {
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 8px 20px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  backdrop-filter: blur(2px);
+}
+
+.photo:hover .img-container {
+  transform: translateY(-5px);
+}
+
+.photo:hover img {
+  transform: scale(1.1);
+}
+
+.photo:hover .overlay {
+  opacity: 1;
+}
+
+.photo h2 {
+  font-size: 16px;
+  margin: 15px 0 5px;
+  font-weight: 500;
+}
+
+.photo p {
+  font-size: 11px;
+  color: #999;
+  margin: 0;
+}
+
+/* --- 分類展示頁 (Category Pages) 樣式 --- */
+.category-page {
+  background: #000 !important;
+  color: #fff !important;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.photo-gallery-v2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px 20px;
+}
+
+.photo-counter {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.photo-display-area {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 50vh; /* 縮小圖片高度以騰出空間給文字 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-display-area img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: opacity 0.8s ease;
+  opacity: 0;
+}
+
+.photo-display-area img.active {
+  opacity: 1;
+}
+
+.photo-info {
+  text-align: center;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+.photo-info h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+.photo-info p {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.6;
+}
+
+.side-controls {
+  position: absolute;
+  top: 50%;
+  width: 120%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.side-controls button {
+  pointer-events: auto;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.2);
+  font-size: 50px;
+  cursor: pointer;
+}
+
+/* --- 頁尾 --- */
+.portfolio-footer {
+  text-align: right;
+  padding: 15px 60px;
+  border-top: 1px solid #eee;
+  background: #f9f9f9;
+  flex: 0 0 auto;
+}
+
+.category-page .portfolio-footer {
+  background: #000;
+  border-top: 1px solid #222;
+}
+
+.portfolio-footer p {
+  font-size: 10px;
+  color: #999;
+}
+
+.social-links {
+  margin-top: 5px;
+  font-size: 9px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #111;
+}
+
+.category-page .social-links a:hover {
+  color: #fff;
+}
+
+/* --- 聯絡我 (Contact) 頁面樣式 --- */
+.contact-page-body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #ffffff 0%, #f3f3f3 100%); /* 柔和中央放射漸層 */
+}
+
+.contact-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* 聯絡卡片：磨砂玻璃效果 */
+.contact-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 60px 80px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+  border: 1px solid rgba(255,255,255,0.5);
+  animation: entranceAnim 1s ease-out forwards;
+}
+
+.contact-card h1 {
+  font-size: 24px;
+  letter-spacing: 10px;
+  margin-bottom: 50px;
+  font-weight: 300;
+  color: #111;
+  text-transform: uppercase;
+}
+
+.social-icons-container {
+  display: flex;
+  gap: 60px;
+  justify-content: center; /* 確保內容水平置中 */
+  align-items: center;     /* 確保內容垂直置中 */
+}
+
+.social-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #555;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-icon-item i {
+  font-size: 50px;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+
+.social-icon-item span {
+  font-size: 10px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #999;
+}
+
+/* Hover 互動：縮放與發光 */
+.social-icon-item:hover {
+  transform: translateY(-15px);
+  color: #000;
+}
+
+.social-icon-item:hover i {
+  opacity: 1;
+  text-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.social-icon-item.fb:hover i { color: #1877F2; } /* Facebook 品牌藍 */
+.social-icon-item.ig:hover i { color: #E4405F; } /* Instagram 品牌粉 */
+
+/* --- 自我介紹 (About) 頁面樣式 --- */
+.about-page-body {
+  background: #fff;
+  color: #111;
+}
+
+.about-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 150px 40px 100px;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.about-image {
+  flex: 0 0 400px;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.05);
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h1 {
+  font-size: 36px;
+  letter-spacing: 10px;
+  font-weight: 300;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.about-text .quote {
+  font-style: italic;
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  border-left: 2px solid #111;
+  padding-left: 20px;
+}
+
+.about-text p {
+  font-size: 15px;
+  line-height: 2;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* --- 動畫 --- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes entranceAnim {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

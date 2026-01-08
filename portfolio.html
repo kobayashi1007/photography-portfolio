@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>作品集</title>
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="icon" href="/image/camera.png" type="image/png">
+
+
+
+</head>
+<body class="portfolio-page-body">
+  <nav class="navbar">
+  <ul>
+    <li><a href="home.html">首頁</a></li>
+    <li class="dropdown">
+    <a href="#" id="dropdown-toggle">關於我 ▼</a>
+    <ul class="dropdown-menu" id="dropdown-menu">
+    <li><a href="about.html">自我介紹</a></li>
+    <li><a href="portfolio.html">作品集</a></li>
+    <li><a href="contact.html">聯絡我</a></li>
+  </ul>
+</li>
+      <li class="mute-btn"> 
+        <button id="mute-btn">🔇 靜音</button> 
+        <div class="volume-wrapper">
+          <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.5">
+          <span id="volume-pct">50%</span>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+ 
+
+<audio id="bg-music" autoplay loop hidden>
+  <source src="music.mp3" type="audio/mpeg">
+  <source src="music.ogg" type="audio/ogg">
+</audio>
+
+  <!-- 作品集標題區 -->
+  <header class="portfolio-header">
+    <h1>精選作品</h1>
+    <p>捕捉光影瞬間，探索視角下的世界的故事</p>
+    <div class="header-line"></div>
+  </header>
+
+  <!-- 作品集縮圖區塊 -->
+  <section class="gallery">
+    <div class="photo" style="animation-delay: 0.1s;">
+      <a href="viewphoto.html">
+        <div class="img-container">
+          <img src="/image/photo1.jpg" alt="風景攝影">
+          <div class="overlay"><span>VIEW</span></div>
+        </div>
+      </a>
+      <div class="text">
+        <h2>風景攝影</h2>
+        <p>在大自然中捕捉永恆的寧靜</p>
+      </div>
+    </div>
+
+    <div class="photo" style="animation-delay: 0.3s;">
+      <a href="streetphoto.html">
+        <div class="img-container">
+          <img src="/image/photo2.jpg" alt="街景攝影">
+          <div class="overlay"><span>VIEW</span></div>
+        </div>
+      </a>
+      <div class="text">
+        <h2>街景攝影</h2>
+        <p>穿梭於都市叢林的日常日常</p>
+      </div>
+    </div>
+
+    <div class="photo" style="animation-delay: 0.5s;">
+      <a href="peoplephoto.html">
+        <div class="img-container">
+          <img src="/image/photo3.jpg" alt="人像攝影">
+          <div class="overlay"><span>VIEW</span></div>
+        </div>
+      </a>
+      <div class="text">
+        <h2>人像攝影</h2>
+        <p>細膩捕捉每一瞬的情感流露</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾區塊 -->
+  <footer class="portfolio-footer">
+    <p>© 2026 攝影作品集. All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com" target="_blank">INSTAGRAM</a> / 
+      <a href="https://www.facebook.com" target="_blank">FACEBOOK</a> / 
+      <a href="https://www.flickr.com" target="_blank">FLICKR</a>
+    </div>
+  </footer>
+
+<!-- 連結 JS 檔案 -->
+<script src="photo.js"></script>
+<script src="menu.js"></script>
+<script src="mute.js"></script>
+
+</body>
+</html>

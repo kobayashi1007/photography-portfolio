@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>風景攝影</title>
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="icon" href="/image/camera.png" type="image/png">
+</head>
+<body class="category-page">
+  <!-- 導覽列 -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="home.html">首頁</a></li>
+      <li class="dropdown">
+        <a href="#" id="dropdown-toggle">關於我 ▼</a>
+        <ul class="dropdown-menu" id="dropdown-menu">
+          <li><a href="about.html">自我介紹</a></li>
+          <li><a href="portfolio.html">作品集</a></li>
+          <li><a href="contact.html">聯絡我</a></li>
+        </ul>
+      </li>
+      <li class="mute-btn"> 
+        <button id="mute-btn">🔇 靜音</button> 
+        <div class="volume-wrapper">
+          <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.5">
+          <span id="volume-pct">50%</span>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 背景音樂 -->
+  <audio id="bg-music" autoplay loop hidden>
+    <source src="music.mp3" type="audio/mpeg">
+    <source src="music.ogg" type="audio/ogg">
+  </audio>
+
+  <!-- 照片展示區 V2 -->
+  <section class="photo-gallery-v2">
+    <!-- 數字指示器 -->
+    <div class="photo-counter" id="photo-counter">01 / 07</div>
+
+    <div class="photo-display-area">
+      <!-- 左右切換按鈕 -->
+      <div class="side-controls">
+        <button id="prev-arrow">‹</button>
+        <button id="next-arrow">›</button>
+      </div>
+      
+      <img id="gallery-photo" class="active" src="/image/view01.jpg" alt="風景照片">
+    </div>
+
+    <div class="photo-info">
+      <h2 id="photo-title">藍天與飛機尾流</h2>
+      <p id="photo-desc">在晴朗無雲的天空中，一道飛機尾流筆直劃過，象徵人類科技與自然的交會。</p>
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script src="menu.js"></script>
+  <script src="mute.js"></script>
+  <script src="viewcontrolphoto.js"></script>
+</body>
+</html>

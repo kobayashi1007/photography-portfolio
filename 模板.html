@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>風景攝影</title>
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="icon" href="/image/camera.png" type="image/png">
+
+
+
+</head>
+<body>
+  <nav class="navbar">
+  <ul>
+    <li><a href="home.html">首頁</a></li>
+    <li class="dropdown">
+    <a href="#" id="dropdown-toggle">關於我 ▼</a>
+    <ul class="dropdown-menu" id="dropdown-menu">
+    <li><a href="about.html">自我介紹</a></li>
+    <li><a href="portfolio.html">作品集</a></li>
+    <li><a href="contact.html">聯絡我</a></li>
+  </ul>
+</li>
+  <li class="mute-btn"> 
+    <button id="mute-btn">🔇 靜音</button> </li>
+    <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5">
+  </ul>
+</nav>
+
+ 
+
+<audio id="bg-music" autoplay loop hidden>
+  <source src="music.mp3" type="audio/mpeg">
+  <source src="music.ogg" type="audio/ogg">
+</audio>
+
+
+<!-- 連結 JS 檔案 -->
+<script src="photo.js"></script>
+<script src="menu.js"></script>
+<script src="mute.js"></script>
+
+
+</body>
+</html>

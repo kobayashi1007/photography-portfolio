@@ -1,0 +1,30 @@
+/* 淡入淡出 */
+.photo-fade {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.photo-fade.active {
+  opacity: 1;
+}
+
+/* 左右滑入 */
+.photo-slide {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.8s ease;
+}
+.photo-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 縮放淡入 */
+.photo-zoom {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s ease;
+}
+.photo-zoom.active {
+  opacity: 1;
+  transform: scale(1);
+}

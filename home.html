@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>攝影作品</title>
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="icon" href="/image/camera.png" type="image/png">
+
+
+
+</head>
+<body>
+  <nav class="navbar">
+  <ul>
+    <li><a href="home.html">首頁</a></li>
+    <li class="dropdown">
+    <a href="#" id="dropdown-toggle">關於我 ▼</a>
+    <ul class="dropdown-menu" id="dropdown-menu">
+    <li><a href="about.html">自我介紹</a></li>
+    <li><a href="portfolio.html">作品集</a></li>
+    <li><a href="contact.html">聯絡我</a></li>
+  </ul>
+</li>
+      <li class="mute-btn"> 
+        <button id="mute-btn">🔇 靜音</button> 
+        <div class="volume-wrapper">
+          <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.5">
+          <span id="volume-pct">50%</span>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 首頁 Hero 區塊：第一眼印象 -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>捕捉光影的瞬間</h1>
+      <p>攝影作品集 / PHOTOGRAPHY PORTFOLIO</p>
+    </div>
+    <!-- 滾動提示動畫 -->
+    <div class="scroll-indicator">
+      <div class="mouse"></div>
+      <p>SCROLL</p>
+    </div>
+  </section>
+
+  <!-- 亮點作品展示區：圖文並茂 -->
+  <section class="photo-text-section">
+    <div class="main-gallery">
+      <div class="photo-area">
+        <a id="gallery-link" href="viewphoto.html">
+          <img id="gallery-photo" src="/image/photo1.jpg" alt="展示照片">
+        </a>
+      </div>
+      
+      <div class="text-area">
+        <div class="category-tag">FEATURED PROJECT</div>
+        <h2 id="gallery-title">風景攝影</h2>
+        <div class="text-line"></div>
+        <p id="gallery-desc">風景攝影是一門結合技術與藝術的創作...</p>
+        
+        <!-- 優化後的切換按鈕 -->
+        <div class="gallery-controls">
+          <button id="prev-btn" title="上一張">← PREV</button>
+          <button id="next-btn" title="下一張">NEXT →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾區塊 -->
+  <footer class="portfolio-footer">
+    <p>© 2026 攝影作品集. All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com" target="_blank">INSTAGRAM</a> / 
+      <a href="https://www.facebook.com" target="_blank">FACEBOOK</a> / 
+      <a href="https://www.flickr.com" target="_blank">FLICKR</a>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+<audio id="bg-music" autoplay loop hidden>
+  <source src="music.mp3" type="audio/mpeg">
+  <source src="music.ogg" type="audio/ogg">
+</audio>
+
+
+<!-- 連結 JS 檔案 -->
+<script src="photo.js"></script>
+<script src="menu.js"></script>
+<script src="mute.js"></script>
+
+
+</body>
+</html>

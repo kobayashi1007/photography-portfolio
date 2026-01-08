@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>自我介紹 | 攝影作品集</title>
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="icon" href="/image/camera.png" type="image/png">
+</head>
+<body class="about-page-body">
+  <!-- 導覽列 -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="home.html">首頁</a></li>
+      <li class="dropdown">
+        <a href="#" id="dropdown-toggle">關於我 ▼</a>
+        <ul class="dropdown-menu" id="dropdown-menu">
+          <li><a href="about.html">自我介紹</a></li>
+          <li><a href="portfolio.html">作品集</a></li>
+          <li><a href="contact.html">聯絡我</a></li>
+        </ul>
+      </li>
+      <li class="mute-btn"> 
+        <button id="mute-btn">🔇 靜音</button> 
+        <div class="volume-wrapper">
+          <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.5">
+          <span id="volume-pct">50%</span>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 自我介紹內容 -->
+  <main class="about-content">
+    <div class="about-image">
+      <!-- 已更換為動畫風格攝影師照片 -->
+      <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=1000&auto=format&fit=crop" alt="攝影師個人照">
+    </div>
+    
+    <div class="about-text">
+      <h1>ABOUT ME</h1>
+      <div class="quote">
+        「攝影不是記錄發生了什麼，而是記錄我看見了什麼。」
+      </div>
+      <p>
+        你好，我是一位熱愛捕捉光影故事的獨立攝影師。對我而言，攝影不僅僅是按下快門的動作，而是一種觀察世界的特殊方式。
+      </p>
+      <p>
+        我的創作核心圍繞著「真實」與「詩意」。無論是壯闊的自然風景、喧囂的都市街頭，還是充滿情感的人像攝影，我始終致力於尋找那些在日常生活中稍縱即逝的純粹瞬間。
+      </p>
+      <p>
+        目前專注於膠片質感與數位影像的結合，希望能透過我的視角，為觀者帶來平靜且深邃的視覺體驗。感謝你來到我的攝影空間，期待與你在影像的世界裡產生共鳴。
+      </p>
+    </div>
+  </main>
+
+  <!-- 頁尾區塊 -->
+  <footer class="portfolio-footer">
+    <p>© 2026 攝影作品集. All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com" target="_blank">INSTAGRAM</a> / 
+      <a href="https://www.facebook.com" target="_blank">FACEBOOK</a> / 
+      <a href="https://www.flickr.com" target="_blank">FLICKR</a>
+    </div>
+  </footer>
+
+  <!-- 背景音樂播放器 -->
+  <audio id="bg-music" autoplay loop hidden>
+    <source src="music.mp3" type="audio/mpeg">
+    <source src="music.ogg" type="audio/ogg">
+  </audio>
+
+  <!-- 腳本引入 -->
+  <script src="menu.js"></script>
+  <script src="mute.js"></script>
+</body>
+</html>

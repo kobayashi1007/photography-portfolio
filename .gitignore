@@ -1,0 +1,5 @@
+node_modules/
+*.exe
+.cursor/
+.vscode/
+package-lock.json
