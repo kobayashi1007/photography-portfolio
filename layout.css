@@ -10,7 +10,7 @@ body {
 /* --- 首頁專用樣式 --- */
 .hero {
   height: 100vh;
-  background-image: url("/image/photo.jpg");
+  background-image: url("image/photo.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
