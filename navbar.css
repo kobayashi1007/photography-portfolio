@@ -1,10 +1,10 @@
 /* 導覽列樣式 */
 .navbar {
-  /* 柔和玻璃質感，降低突兀感 */
-  background: linear-gradient(to bottom, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.35) 100%);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* 更透亮的玻璃質感，減少黑色覆蓋感 */
+  background: linear-gradient(to bottom, rgba(12,12,12,0.58) 0%, rgba(12,12,12,0.22) 100%);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 4px 0;
   position: fixed;
   top: 0;
