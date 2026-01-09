@@ -81,7 +81,7 @@
   opacity: 0;            /* 預設隱藏 */
   visibility: hidden;    /* 預設隱藏 */
   transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 999;
+  z-index: 2000;         /* 確保蓋在內容上方 */
   gap: 0;
   list-style: none;
 }
