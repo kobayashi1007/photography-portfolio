@@ -4,19 +4,76 @@ document.addEventListener("DOMContentLoaded", () => {
   const volumeControl = document.getElementById("volume-control");
   const volumePct = document.getElementById("volume-pct");
 
-  // 靜音按鈕
-  muteBtn.addEventListener("click", () => {
-    music.muted = !music.muted;
-    muteBtn.innerHTML = music.muted ? "🔊 開聲" : "🔇 靜音";
-  });
+  if (!music) return;
 
-  // 音量控制橫桿
-  volumeControl.addEventListener("input", () => {
-    const val = volumeControl.value;
-    music.volume = val;
-    // 更新百分比文字 (例如 0.5 -> 50%)
-    if (volumePct) {
-      volumePct.textContent = Math.round(val * 100) + "%";
+  // 從 sessionStorage 還原狀態
+  const savedTime = sessionStorage.getItem("musicTime");
+  const savedMuted = sessionStorage.getItem("musicMuted") === "true";
+  const savedVolume = sessionStorage.getItem("musicVolume");
+
+  if (savedVolume !== null && !isNaN(savedVolume)) {
+    music.volume = parseFloat(savedVolume);
+    if (volumeControl) volumeControl.value = savedVolume;
+    if (volumePct) volumePct.textContent = Math.round(savedVolume * 100) + "%";
+  } else {
+    music.volume = 0.5;
+  }
+
+  music.muted = savedMuted;
+  if (muteBtn) {
+    muteBtn.innerHTML = music.muted ? "🔊 開聲" : "🔇 靜音";
+  }
+
+  const setTime = () => {
+    if (savedTime && !isNaN(savedTime)) {
+      music.currentTime = parseFloat(savedTime);
+    }
+  };
+  if (music.readyState >= 1) {
+    setTime();
+  } else {
+    music.addEventListener("loadedmetadata", setTime);
+  }
+
+  const startPlayback = () => {
+    if (music.paused && !music.muted) {
+      music.play().catch(() => {
+        /* 瀏覽器自動播放限制，等待互動 */
+      });
+    }
+  };
+  document.addEventListener("click", startPlayback, { once: true });
+  startPlayback();
+
+  // 定期保存播放時間
+  music.addEventListener("timeupdate", () => {
+    if (!music.paused) {
+      sessionStorage.setItem("musicTime", music.currentTime);
     }
   });
+
+  // 靜音按鈕
+  if (muteBtn) {
+    muteBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      music.muted = !music.muted;
+      muteBtn.innerHTML = music.muted ? "🔊 開聲" : "🔇 靜音";
+      sessionStorage.setItem("musicMuted", music.muted);
+      if (!music.muted) {
+        music.play();
+      }
+    });
+  }
+
+  // 音量控制
+  if (volumeControl) {
+    volumeControl.addEventListener("input", () => {
+      const val = volumeControl.value;
+      music.volume = val;
+      sessionStorage.setItem("musicVolume", val);
+      if (volumePct) {
+        volumePct.textContent = Math.round(val * 100) + "%";
+      }
+    });
+  }
 });
