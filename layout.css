@@ -622,6 +622,12 @@ img {
   .portfolio-header h1 {
     font-size: 24px;
   }
+  .photo-display-area {
+    height: 40vh;
+  }
+  .about-image {
+    height: 320px;
+  }
 }
 
 @keyframes fadeIn {
