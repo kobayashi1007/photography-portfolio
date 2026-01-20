@@ -152,17 +152,18 @@
     width: 100%;
     max-width: 1200px;
     text-align: center;
-    margin: 50px 0;
-    display: flex; /* 啟用 Flexbox */ 
-    align-items: center; /* 垂直置中 */ 
     margin: 40px 0;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
   }
 
   .photo img {
-    width: 500px;   /* 固定寬度，依需求調整 */
-    height: auto;   /* 高度自動等比例縮放 */
+    width: min(100%, 500px);
+    height: auto;
     border-radius: 10px;
-    margin-right: 100px;
+    flex: 1 1 300px;
   }
 
 
@@ -198,4 +199,16 @@
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+  }
+
+  @media (max-width: 768px) {
+    .photo {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .photo img {
+      width: 100%;
+      max-width: 100%;
+    }
   }

@@ -7,6 +7,13 @@ body {
   overflow-x: hidden;
 }
 
+/* 讓所有圖片在小視窗自適應縮放 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* --- 首頁專用樣式 --- */
 .hero {
   height: 100vh;
@@ -163,7 +170,8 @@ body {
 }
 
 .photo-area img {
-  max-width: 450px;
+  width: 100%;
+  max-width: 500px;
   height: auto;
   border-radius: 4px;
   box-shadow: 0 30px 60px rgba(0,0,0,0.1);
