@@ -89,21 +89,15 @@
   padding: 0;
   background: rgba(0, 0, 0, 0.9);
   border: 1px solid #444;
-  display: flex;
+  display: none;   /* 預設隱藏 */
   flex-direction: column;
-  opacity: 0;            /* 預設隱藏 */
-  visibility: hidden;    /* 預設隱藏 */
-  pointer-events: none;  /* 隱藏時不可點擊 */
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 2000;         /* 確保蓋在內容上方 */
+  z-index: 2000;   /* 確保蓋在內容上方 */
   gap: 0;
   list-style: none;
 }
 
 .dropdown-menu.show {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;  /* 顯示時可點擊 */
+  display: flex;   /* 顯示時使用 flex */
 }
 
 .dropdown-menu li a {
