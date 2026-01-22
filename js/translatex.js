@@ -20,5 +20,5 @@ photo.classList.add(`photo-${transitionType}`, "active");
 
 // 範例：切換下一張
 document.getElementById("next-btn").addEventListener("click", () => {
-  showPhoto(photo, "./image/photo2.jpg");
+  showPhoto(photo, "../image/photo2.jpg");
 });

@@ -111,7 +111,7 @@
 
   .hero {
     height: 100vh; /* 全螢幕高度 */
-    background-image: url("photo.jpg"); /* 換成你的照片檔名 */
+    background-image: url("../image/photo.jpg"); /* 換成你的照片檔名 */
     background-size: cover;   /* 照片自動填滿 */
     background-position: center; /* 照片置中 */
     background-repeat: no-repeat; /* 不重複 */
