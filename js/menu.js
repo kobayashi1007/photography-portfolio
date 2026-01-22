@@ -1,6 +1,11 @@
-// 下拉選單控制 - 使用最簡單可靠的方法
+// 下拉選單控制：避免重複綁定，確保一次初始化
 (function() {
+  var initialized = false;
+
   function initDropdown() {
+    if (initialized) return;
+    initialized = true;
+
     var toggle = document.getElementById("dropdown-toggle");
     var menu = document.getElementById("dropdown-menu");
 
@@ -9,39 +14,53 @@
       return;
     }
 
+    // 預設狀態
+    menu.style.display = "none";
+    toggle.setAttribute("aria-expanded", "false");
+
+    function hideMenu() {
+      menu.style.display = "none";
+      menu.classList.remove("show");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+
+    function showMenu() {
+      menu.style.display = "flex";
+      menu.classList.add("show");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+
     // 點擊切換按鈕
     toggle.addEventListener("click", function(e) {
       e.preventDefault();
       e.stopPropagation();
-      
-      // 直接切換 display 樣式和 class
-      if (menu.style.display === "flex" || menu.classList.contains("show")) {
-        menu.style.display = "none";
-        menu.classList.remove("show");
+      if (menu.classList.contains("show")) {
+        hideMenu();
       } else {
-        menu.style.display = "flex";
-        menu.classList.add("show");
+        showMenu();
       }
-    }, true); // 使用捕獲階段，確保優先執行
+    }, true); // 捕獲階段，確保優先觸發
 
     // 點擊外部關閉選單
     document.addEventListener("click", function(e) {
-      if (menu && toggle) {
-        if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-          if (menu.classList.contains("show")) {
-            menu.style.display = "none";
-            menu.classList.remove("show");
-          }
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        if (menu.classList.contains("show")) {
+          hideMenu();
         }
       }
-    }, false);
+    });
+
+    // 按下 Esc 關閉
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape" && menu.classList.contains("show")) {
+        hideMenu();
+      }
+    });
   }
 
-  // 確保在 DOM 完全載入後執行
-  if (document.readyState === "complete") {
+  if (document.readyState === "complete" || document.readyState === "interactive") {
     initDropdown();
   } else {
-    window.addEventListener("load", initDropdown);
-    document.addEventListener("DOMContentLoaded", initDropdown);
+    document.addEventListener("DOMContentLoaded", initDropdown, { once: true });
   }
 })();
