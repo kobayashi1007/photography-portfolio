@@ -93,6 +93,7 @@
   flex-direction: column;
   opacity: 0;            /* 預設隱藏 */
   visibility: hidden;    /* 預設隱藏 */
+  pointer-events: none;  /* 隱藏時不可點擊 */
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 2000;         /* 確保蓋在內容上方 */
   gap: 0;
@@ -102,6 +103,7 @@
 .dropdown-menu.show {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;  /* 顯示時可點擊 */
 }
 
 .dropdown-menu li a {

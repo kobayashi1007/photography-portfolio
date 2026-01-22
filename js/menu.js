@@ -8,15 +8,30 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  // 點擊切換按鈕時顯示/隱藏選單
   toggle.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation(); // 防止事件冒泡
-    menu.classList.toggle("show"); // 切換 show class
+    const isShowing = menu.classList.contains("show");
+    if (isShowing) {
+      menu.classList.remove("show");
+    } else {
+      menu.classList.add("show");
+    }
   });
 
+  // 點擊選單外部時關閉選單
   document.addEventListener("click", (e) => {
-    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-      menu.classList.remove("show"); // 收合
+    const isClickInsideMenu = menu.contains(e.target);
+    const isClickOnToggle = toggle.contains(e.target);
+    
+    if (!isClickInsideMenu && !isClickOnToggle && menu.classList.contains("show")) {
+      menu.classList.remove("show");
     }
+  });
+
+  // 防止選單內的連結點擊時關閉選單（可選，如果需要點擊後關閉可以移除）
+  menu.addEventListener("click", (e) => {
+    e.stopPropagation();
   });
 });
