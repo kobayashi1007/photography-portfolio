@@ -100,6 +100,11 @@
   display: flex;   /* 顯示時使用 flex */
 }
 
+.navbar li.dropdown:hover .dropdown-menu,
+.navbar li.dropdown:focus-within .dropdown-menu {
+  display: flex;   /* 桌面滑過 / 鍵盤聚焦時也能展開，避免 JS 被阻擋時無法顯示 */
+}
+
 .dropdown-menu li a {
   display: flex;
   justify-content: center;
