@@ -396,11 +396,15 @@ img {
 .portfolio-footer p {
   font-size: 10px;
   color: #999;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 .social-links {
   margin-top: 5px;
   font-size: 9px;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 .social-links a {
@@ -627,6 +631,15 @@ img {
   }
   .about-image {
     height: 320px;
+  }
+  .portfolio-footer {
+    padding: 15px 20px;
+  }
+  .portfolio-footer p {
+    font-size: 9px;
+  }
+  .social-links {
+    font-size: 8px;
   }
 }
 
