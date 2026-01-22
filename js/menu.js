@@ -1,55 +1,47 @@
-// 下拉選單控制
+// 下拉選單控制 - 使用最簡單可靠的方法
 (function() {
-  'use strict';
-  
   function initDropdown() {
     var toggle = document.getElementById("dropdown-toggle");
     var menu = document.getElementById("dropdown-menu");
 
-    console.log("初始化下拉選單...", { toggle: toggle, menu: menu });
-
     if (!toggle || !menu) {
-      console.error("找不到下拉選單元素！", { toggle: toggle, menu: menu });
+      console.error("找不到下拉選單元素！");
       return;
     }
 
-    console.log("下拉選單元素找到，綁定事件...");
-
     // 點擊切換按鈕
     toggle.addEventListener("click", function(e) {
-      console.log("點擊了切換按鈕");
       e.preventDefault();
       e.stopPropagation();
       
-      // 切換 show class
-      var hasShow = menu.classList.contains("show");
-      console.log("當前狀態:", hasShow ? "顯示" : "隱藏");
-      
-      if (hasShow) {
+      // 直接切換 display 樣式和 class
+      if (menu.style.display === "flex" || menu.classList.contains("show")) {
+        menu.style.display = "none";
         menu.classList.remove("show");
-        console.log("隱藏選單");
       } else {
+        menu.style.display = "flex";
         menu.classList.add("show");
-        console.log("顯示選單");
       }
-    }, false);
+    }, true); // 使用捕獲階段，確保優先執行
 
     // 點擊外部關閉選單
     document.addEventListener("click", function(e) {
-      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-        if (menu.classList.contains("show")) {
-          menu.classList.remove("show");
-          console.log("點擊外部，關閉選單");
+      if (menu && toggle) {
+        if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+          if (menu.classList.contains("show")) {
+            menu.style.display = "none";
+            menu.classList.remove("show");
+          }
         }
       }
     }, false);
   }
 
-  // 確保 DOM 載入後執行
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initDropdown);
+  // 確保在 DOM 完全載入後執行
+  if (document.readyState === "complete") {
+    initDropdown();
   } else {
-    // DOM 已經載入，直接執行
-    setTimeout(initDropdown, 0);
+    window.addEventListener("load", initDropdown);
+    document.addEventListener("DOMContentLoaded", initDropdown);
   }
 })();
