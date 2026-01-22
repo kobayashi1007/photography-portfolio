@@ -1,9 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
-    <meta http-equiv="refresh" content="0; url=html/home.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="description" content="專業攝影作品集 - 捕捉光影的瞬間，探索視角下的世界的故事。">
+  <title>首頁 | 攝影作品集</title>
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="icon" href="image/camera.png" type="image/png">
+
+
+
 </head>
 <body>
-    <p>正在前往首頁... <a href="html/home.html">點此進入</a></p>
+  <nav class="navbar">
+  <ul>
+    <li><a href="html/home.html" class="active">首頁</a></li>
+    <li class="dropdown">
+    <a href="#" id="dropdown-toggle">關於我 ▼</a>
+    <ul class="dropdown-menu" id="dropdown-menu">
+    <li><a href="html/about.html">自我介紹</a></li>
+    <li><a href="html/portfolio.html">作品集</a></li>
+    <li><a href="html/contact.html">聯絡我</a></li>
+  </ul>
+</li>
+      <li class="mute-btn"> 
+        <button id="mute-btn">🔇 靜音</button> 
+        <div class="volume-wrapper">
+          <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.5">
+          <span id="volume-pct">50%</span>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 首頁 Hero 區塊：第一眼印象 -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>捕捉光影的瞬間</h1>
+      <p>攝影作品集 / PHOTOGRAPHY PORTFOLIO</p>
+    </div>
+    <!-- 滾動提示動畫 -->
+    <div class="scroll-indicator">
+      <div class="mouse"></div>
+      <p>SCROLL</p>
+    </div>
+  </section>
+
+  <!-- 亮點作品展示區：圖文並茂 -->
+  <section class="photo-text-section">
+    <div class="main-gallery">
+      <div class="photo-area">
+        <a id="gallery-link" href="html/viewphoto.html">
+          <img id="gallery-photo" src="image/photo1.jpg" alt="展示照片" loading="lazy">
+        </a>
+      </div>
+      
+      <div class="text-area">
+        <div class="category-tag">FEATURED PROJECT</div>
+        <h2 id="gallery-title">風景攝影</h2>
+        <div class="text-line"></div>
+        <p id="gallery-desc">風景攝影是一門結合技術與藝術的創作，它透過鏡頭捕捉自然的壯麗與細膩。山巒的層次、湖泊的倒影、天空的變幻，都能在光影交錯中展現獨特的美感。攝影師不僅要掌握構圖與曝光，更要用心體會大自然的氛圍，將瞬間化為永恆。風景攝影的魅力在於，它能讓觀者透過照片感受寧靜、壯闊與生命力，彷彿置身其中，與自然對話。</p>
+        
+        <!-- 優化後的切換按鈕 -->
+        <div class="gallery-controls">
+          <button id="prev-btn" title="上一張">← PREV</button>
+          <button id="next-btn" title="下一張">NEXT →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾區塊 -->
+  <footer class="portfolio-footer">
+    <p>© 2026 攝影作品集. All Rights Reserved. | 圖片支援：黑雪</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com" target="_blank">INSTAGRAM</a> / 
+      <a href="https://www.facebook.com" target="_blank">FACEBOOK</a> / 
+      <a href="https://www.flickr.com" target="_blank">FLICKR</a>
+    </div>
+  </footer>
+
+
+
+
+
+<audio id="bg-music" autoplay loop hidden>
+  <source src="music.mp3" type="audio/mpeg">
+  <source src="music.ogg" type="audio/ogg">
+</audio>
+
+
+<!-- 連結 JS 檔案 -->
+<script src="js/photo.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/mute.js"></script>
+
+
 </body>
 </html>
