@@ -17,17 +17,30 @@
     // 預設狀態
     menu.style.display = "none";
     toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-controls", "dropdown-menu");
+
+    function logState(action) {
+      if (typeof console !== "undefined" && console.log) {
+        console.log("[dropdown]", action, {
+          expanded: toggle.getAttribute("aria-expanded"),
+          display: menu.style.display,
+          hasShow: menu.classList.contains("show")
+        });
+      }
+    }
 
     function hideMenu() {
       menu.style.display = "none";
       menu.classList.remove("show");
       toggle.setAttribute("aria-expanded", "false");
+      logState("hide");
     }
 
     function showMenu() {
-      menu.style.display = "flex";
+      menu.style.setProperty("display", "flex", "important");
       menu.classList.add("show");
       toggle.setAttribute("aria-expanded", "true");
+      logState("show");
     }
 
     // 點擊切換按鈕
@@ -40,6 +53,18 @@
         showMenu();
       }
     }, true); // 捕獲階段，確保優先觸發
+
+    // 鍵盤操作（Enter / Space）
+    toggle.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        if (menu.classList.contains("show")) {
+          hideMenu();
+        } else {
+          showMenu();
+        }
+      }
+    });
 
     // 點擊外部關閉選單
     document.addEventListener("click", function(e) {

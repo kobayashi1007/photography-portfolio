@@ -14,7 +14,7 @@
   max-width: 100%;
   z-index: 1000;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: visible; /* 確保下拉內容不被裁切 */
 }
 
 .navbar ul {
@@ -27,7 +27,7 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: visible; /* 下拉內容可向外延伸 */
 }
 
 .navbar ul li a {
